@@ -1,8 +1,9 @@
 import math
 import matplotlib.pyplot as plt
+from .dist import Distribution
 
 
-class Gaussian():
+class Gaussian(Distribution):
     """
     Gaussian distribution class for calculating and
     visualizing a Gaussian distribution.
@@ -14,17 +15,13 @@ class Gaussian():
     """
 
     def __init__(self, mu=0, sigma=1):
-        self.mean = mu
-        self.stdev = sigma
-        self.data = []
+        super().__init__(mu, sigma)
 
     def calculate_mean(self):
         """
         Method to calculate the mean of the data set.
-
         Args:
             None
-
         Returns:
             float: mean of the data set
         """
@@ -34,13 +31,12 @@ class Gaussian():
     def calculate_stdev(self, sample=True):
         """
         Method to calculate the standard deviation of the data set.
-
         Args:
             sample (bool): whether the data represents a sample or population
-
         Returns:
             float: standard deviation of the data set
         """
+        self.calculate_mean()
         total = 0
         for ele in self.data:
             total += (ele - self.mean) ** 2
@@ -51,30 +47,6 @@ class Gaussian():
             self.stdev = math.sqrt(total / float(len(self.data)))
 
         return self.stdev
-
-    def read_data_file(self, file_name, sample=True):
-        """
-        Method to read in data from a txt file. The txt file should have
-        one number (float) per line. The numbers are stored in the data attribute.
-        After reading in the file, the mean and standard deviation are calculated
-
-        Args:
-            file_name (string): name of a file to read from
-
-        Returns:
-            None
-        """
-        # This code opens a data file and appends the data to a list called data_list
-        with open(file_name) as file:
-            data_list = []
-            line = file.readline()
-            while line:
-                data_list.append(int(line))
-                line = file.readline()
-
-        self.data = data_list[:]
-        self.calculate_mean()
-        self.calculate_stdev(sample=sample)
 
     def plot_histogram(self):
         """
@@ -151,6 +123,35 @@ class Gaussian():
         plt.show()
 
         return x, y
+
+    def __add__(self, other):
+        """
+        Magic method to add together two Gaussian distributions
+
+        Args:
+            other (Gaussian): Gaussian instance
+
+        Returns:
+            Gaussian: Gaussian distribution
+        """
+        result = Gaussian()
+        result.data = self.data + other.data
+        result.mean = self.mean + other.mean
+        result.stdev = math.sqrt(self.stdev ** 2 + other.stdev ** 2)
+
+        return result
+
+    def __repr__(self):
+        """
+        Magic method to output the characteristics of the Gaussian instance
+
+        Args:
+            None
+
+        Returns:
+            string: characteristics of the Gaussian
+        """
+        return "mean {}, standard deviation {}".format(self.mean, self.stdev)
 
 
 if __name__ == "__main__":
