@@ -1,6 +1,6 @@
 import sys
 
-sys.path.append("../")
+sys.path.append("../../")
 from quiz import calculate_returns
 
 from collections import OrderedDict

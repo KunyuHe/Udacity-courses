@@ -3,7 +3,7 @@ from collections import OrderedDict
 
 import pandas as pd
 
-sys.path.append("../")
+sys.path.append("../../")
 
 from tests import project_test, assert_output, generate_random_tickers
 from quiz import days_to_weeks

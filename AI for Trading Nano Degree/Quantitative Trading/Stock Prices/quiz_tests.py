@@ -3,12 +3,12 @@ from collections import OrderedDict
 from quiz import csv_to_close
 import pandas as pd
 
-sys.path.append("../")
+sys.path.append("../../")
 from tests import project_test, assert_output
 
 
 @project_test
-def test_csv_to_close(fn):
+def test_csv_to_close(fn=csv_to_close):
     tickers = ['A', 'B', 'C']
     dates = ['2017-09-22', '2017-09-25', '2017-09-26', '2017-09-27',
              '2017-09-28']
