@@ -7,12 +7,11 @@ import pandas as pd
 import numpy as np
 
 from tests import generate_random_tickers, assert_output, project_test
-from utils import (resample_prices, compute_log_returns, analyze_alpha,
-                   get_top_n, shift_returns, portfolio_returns)
+import utils
 
 
 @project_test
-def test_resample_prices(fn=resample_prices):
+def test_resample_prices(fn=utils.resample_prices):
     tickers = generate_random_tickers(5)
     dates = pd.DatetimeIndex(
         ['2008-08-19', '2008-09-08', '2008-09-28', '2008-10-18', '2008-11-07',
@@ -56,7 +55,7 @@ def test_resample_prices(fn=resample_prices):
 
 
 @project_test
-def test_compute_log_returns(fn=compute_log_returns):
+def test_compute_log_returns(fn=utils.compute_log_returns):
     tickers = generate_random_tickers(5)
     dates = pd.DatetimeIndex(
         ['2008-08-31', '2008-09-30', '2008-10-31', '2008-11-30'])
@@ -91,7 +90,7 @@ def test_compute_log_returns(fn=compute_log_returns):
 
 
 @project_test
-def test_shift_returns(fn=shift_returns):
+def test_shift_returns(fn=utils.shift_returns):
     tickers = generate_random_tickers(5)
     dates = pd.DatetimeIndex(
         ['2008-08-31', '2008-09-30', '2008-10-31', '2008-11-30'])
@@ -123,7 +122,7 @@ def test_shift_returns(fn=shift_returns):
 
 
 @project_test
-def test_get_top_n(fn=get_top_n):
+def test_get_top_n(fn=utils.get_top_n):
     tickers = generate_random_tickers(5)
     dates = pd.DatetimeIndex(
         ['2008-08-31', '2008-09-30', '2008-10-31', '2008-11-30'])
@@ -153,7 +152,7 @@ def test_get_top_n(fn=get_top_n):
 
 
 @project_test
-def test_portfolio_returns(fn=portfolio_returns):
+def test_portfolio_returns(fn=utils.portfolio_returns):
     tickers = generate_random_tickers(5)
     dates = pd.DatetimeIndex(
         ['2008-08-31', '2008-09-30', '2008-10-31', '2008-11-30'])
@@ -201,7 +200,7 @@ def test_portfolio_returns(fn=portfolio_returns):
 
 
 @project_test
-def test_analyze_alpha(fn=analyze_alpha):
+def test_analyze_alpha(fn=utils.analyze_alpha):
     dates = pd.DatetimeIndex(
         ['2008-08-31', '2008-09-30', '2008-10-31', '2008-11-30'])
 
