@@ -1,0 +1,31 @@
+# Run time analysis
+This file includes the run time analysis (Worst-Case Big-O Notation) for each
+solution. The analyses focus on the algorithm execution time and neglect data
+reading time.
+
+## Task 0
+Task 0 runs in O(1). Python list access run time is O(1). We access one element
+in each list and print them to console.
+
+## Task 1
+Task 1 runs in O(n). We iterate through both lists to creat a list that holds
+all the phone numbers. We then create a set to get the unique numbers. These
+operations has a run time of O(n).
+
+## Task 2
+Task 2 runs in O(n). We iterate through the call list and creat a dictionary
+mapping numbers to call time. Then we apply the max() function with dictionary
+value as sorting key. Both operations run in O(n).
+
+## Task 3
+Task 3 runs in O(nlogn). We iterate through the call list and get a sublist of
+call receivers. In worst case scenario, all the calls are from landlines in
+Bangalore and to unique receivers. In this case, we will be sorting a sublist of
+length n, and it runs in O(nlogn).
+
+## Task4
+Task 4 runs in O(nlogn). We iterate through both lists and get four lists.
+In worst case scenario, all the callers are potential telemarketers. We creat
+four sets and do set difference. These have a time complexity of O(n) in worst
+case scenario. We then convert it back to a list and sort it. This runs in
+O(nlogn).
