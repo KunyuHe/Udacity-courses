@@ -25,6 +25,9 @@ class Stack():
 
         return tmp
 
+    def top(self):
+        return self.arr[self.next_index-1]
+
     def resize(self):
         self.capacity *= 2
 
@@ -41,6 +44,16 @@ class Stack():
 
     def is_empty(self):
         return self.size() == 0
+
+    def __repr__(self):
+        if self.is_empty():
+            return "<stack is empty>"
+        else:
+            s = "<top of stack>\n_________________\n"
+            s += "\n_________________\n".join(
+                [str(item) for item in self.arr[::-1]])
+            s += "\n_________________\n<bottom of stack>"
+            return s
 
 
 if __name__ == '__main__':

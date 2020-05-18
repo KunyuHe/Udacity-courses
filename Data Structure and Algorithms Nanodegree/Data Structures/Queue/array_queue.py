@@ -55,6 +55,16 @@ class Queue:
     def front(self):
         return self.arr[self.front_index]
 
+    def __repr__(self):
+        if self.is_empty():
+            return "<queue is empty>"
+
+        s = "<enqueue here>\n_________________\n"
+        s += "\n_________________\n".join([str(item) for item in self.arr])
+        s += "\n_________________\n<dequeue here>"
+        return s
+
+
 
 if __name__ == '__main__':
     # Setup
