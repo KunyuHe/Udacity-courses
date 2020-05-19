@@ -12,7 +12,7 @@ All operations must take `O(1)` time.
 
 # Design
 
-The problem requires our cache implementation to not only store the values, but also track the relative order of the user operations in order to figure out which entry to remove as the least recently used entry when our cache reaches its capacity.
+The problem requires our cache implementation to not only map the keys to the values, but also track the relative order of the user operations in order to figure out which entry to remove as the least recently used entry when our cache reaches its capacity.
 
 The data structure we used to implement the cache is a linked list. We can track the order by prepending the most recently used entry to the head and remove the least recently used entry at the tail when the cache memory reaches its limit. When a user operation happens to any nodes except for the head node, we can mark it as the most recently used entry by removing it and prepending it to our linked list.
 
@@ -26,7 +26,7 @@ A cleaner implementation in Python is using `OrderedDict` to serve as the cache 
 
 # Files
 
-- .[LRU_Cache.py](LRU_Cache.py): contains the `LRU_Cache` class as an implementation of the LRU cache with `get()` and `set()` methods that run in O(1) time.
+- [LRU_Cache.py](LRU_Cache.py): contains the `LRU_Cache` class as an implementation of the LRU cache with `get()` and `set()` methods that run in O(1) time.
 - [doubly_linked_lists.py](doubly_linked_lists.py): contains the `DoublyLinkedLists` class that servers as the data structure to store key, value pairs and tracks the relative order of usage.
 - [node.py](node.py): contains the `DoubleNode` class that serves as the basic element of the doubly linked lists cache and stores both key and value.
 - [test.py](test.py): contains test cases for the LRU cache implementation.
