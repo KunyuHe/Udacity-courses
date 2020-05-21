@@ -28,7 +28,7 @@ Here is an example of a test directory listing, which can be downloaded [here](h
 
 # Design
 
-Since a path may contain further subdirectories and those subdirectories may also contain further subdirectories, it's clear that recursion can be a good implementation. The solution would traverse each subdirectory exactly once, hence its time complexity should be `O(n)`. See below for the file structures.
+Since a path may contain further subdirectories and those subdirectories may also contain further subdirectories, it's clear that recursion can be a good implementation. The solution would traverse each subdirectory exactly once, hence its *time complexity* should be `O(n)`. Its *space complexity* is `O(n)` as we create a list to hold the file names that have the specified suffix and its length is dependent on input size linearly. See below for the file structures.
 
 However, when the recursion is very deep, the time of each level delivering its result back up the call stack would matter. Also, recursion might not be ideal since there are no limits to the depth of the subdirectories can be and the maximum recursion depth in Python is rather conservative. Our solution might crash with a much deeply nested directory structure.
 
