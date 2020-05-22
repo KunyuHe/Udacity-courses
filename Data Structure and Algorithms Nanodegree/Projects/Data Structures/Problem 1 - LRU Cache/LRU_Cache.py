@@ -7,6 +7,12 @@ from doubly_linked_lists import DoublyLinkedLists
 class LRU_Cache(object):
 
     def __init__(self, capacity):
+        if not isinstance(capacity, int):
+            raise TypeError((f"Cache capacity is of type {type(capacity)}. "
+                             f"It must be an integer."))
+        if capacity <= 0:
+            raise ValueError("Cache capacity must be a positive integer.")
+
         self.capacity = capacity
         # Doubly linked list, head is the most recently used, tail is the least
         self.cache = DoublyLinkedLists()
@@ -18,7 +24,7 @@ class LRU_Cache(object):
         Retrieve item from provided key. Return -1 if nonexistent.
         """
         if key is None:
-            raise ValueError('Key is missing.')
+            raise KeyError('Search key is missing.')
 
         if key in self.key_node:
             node = self.key_node[key]
@@ -35,7 +41,7 @@ class LRU_Cache(object):
 
     def set(self, key, value):
         if key is None:
-            raise ValueError('Key is missing.')
+            raise ValueError('Set key is missing.')
         if not isinstance(key, collections.Hashable):
             raise TypeError(f'Key is of type {type(key)}. It is not hashable.')
 

@@ -19,7 +19,7 @@ def find_files(suffix, path):
        a list of paths
     """
     if not os.path.isdir(path):
-        raise IOError(f"No such directory {path}.")
+        raise IOError(f"No such directory {path} or it points to a file.")
 
     res = []
     files = os.listdir(path)
