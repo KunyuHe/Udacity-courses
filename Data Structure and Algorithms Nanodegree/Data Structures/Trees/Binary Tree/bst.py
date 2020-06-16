@@ -77,7 +77,7 @@ class BST(Tree):
 
     def diameter(self):
         """
-        Diameter of a Binary Tree is the maximum distance between any two nodes.
+        Diameter of a Binary Trie is the maximum distance between any two nodes.
         :return: diameter
         """
         root = self.get_root()

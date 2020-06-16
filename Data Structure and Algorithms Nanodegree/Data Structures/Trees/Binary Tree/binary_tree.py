@@ -42,7 +42,7 @@ class Tree:
             else:
                 queue.enqueue((None, level + 1))
 
-        s = "Tree\n"
+        s = "Trie\n"
         previous_level = -1
         for i in range(len(visit_order)):
             node, level = visit_order[i]
