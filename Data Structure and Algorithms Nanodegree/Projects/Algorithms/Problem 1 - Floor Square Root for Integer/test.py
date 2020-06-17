@@ -9,12 +9,29 @@ CASES = [
     (9, 3),
     (16, 4),
     (27, 5),
-    (16, 4),
-    (-1, None),
     (9876543210123456789, 3142696805)
+]
+
+TEST_ERROR = [
+    (-1,
+     {
+         'expected_exception': ValueError,
+         'match': r'Input should be non-negative.'
+     }),
+    (1.1,
+     {
+         'expected_exception': TypeError,
+         'match': r'Input should be an integer.'
+     })
 ]
 
 
 @pytest.mark.parametrize("input, expected", CASES)
 def test_sqrt(input: int, expected: Union[int, None]):
     assert sqrt(input) == expected
+
+
+@pytest.mark.parametrize("input, error", TEST_ERROR)
+def test_error(input, error):
+    with pytest.raises(**error):
+        sqrt(input)

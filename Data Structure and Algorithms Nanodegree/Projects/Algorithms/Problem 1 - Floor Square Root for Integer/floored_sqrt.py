@@ -1,7 +1,4 @@
-from typing import Union
-
-
-def sqrt(number: int) -> Union[int, None]:
+def sqrt(number: int) -> int:
     """
     Calculate the floored square root of a number
 
@@ -10,8 +7,10 @@ def sqrt(number: int) -> Union[int, None]:
     Returns:
        int: Floored Square Root
     """
+    if not isinstance(number, int):
+        raise TypeError("Input should be an integer.")
     if number < 0:
-        return
+        raise ValueError("Input should be non-negative.")
 
     if number == 0 or number == 1:
         return number
