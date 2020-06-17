@@ -9,10 +9,17 @@ def rearrange_digits(input_list: List[int]) -> Union[Tuple[int, int], None]:
     Args:
        input_list(list): Input List
     Returns:
-       (int),(int): Two maximum sums
+       (int), (int): Two maximum sums
     """
     if len(input_list) <= 1:
-        return
+        raise ValueError("Input list should have more than one digit "
+                         "for partition.")
+
+    if not all([isinstance(digit, int) for digit in input_list]):
+        raise TypeError("Elements in the input list should be integers.")
+
+    if not all([(digit >= 0 and digit <= 9) for digit in input_list]):
+        raise ValueError("Elements in the input list should be digits.")
 
     # List to host digit frequencies from 9 to 0
     freq_lst = [0 for _ in range(10)]
