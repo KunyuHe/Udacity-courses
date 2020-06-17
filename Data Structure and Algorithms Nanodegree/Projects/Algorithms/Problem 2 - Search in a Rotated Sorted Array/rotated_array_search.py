@@ -32,5 +32,10 @@ def search(input_list: List[int], number: int) -> int:
     Returns:
        int: Index or -1
     """
+    if not all([isinstance(num, int) for num in input_list]):
+        raise TypeError("Input list should be an array of integers.")
+
+    if not isinstance(number, int):
+        raise TypeError("The target number should be an integer.")
 
     return _search(input_list, number, 0, len(input_list) - 1)

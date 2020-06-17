@@ -3,7 +3,7 @@ from typing import Union
 import pytest
 from floored_sqrt import sqrt
 
-CASES = [
+TEST_NORMAL = [
     (0, 0),
     (1, 1),
     (9, 3),
@@ -26,12 +26,12 @@ TEST_ERROR = [
 ]
 
 
-@pytest.mark.parametrize("input, expected", CASES)
+@pytest.mark.parametrize("input, expected", TEST_NORMAL)
 def test_sqrt(input: int, expected: Union[int, None]):
     assert sqrt(input) == expected
 
 
 @pytest.mark.parametrize("input, error", TEST_ERROR)
-def test_error(input, error):
+def test_sqrt_error(input, error):
     with pytest.raises(**error):
         sqrt(input)
