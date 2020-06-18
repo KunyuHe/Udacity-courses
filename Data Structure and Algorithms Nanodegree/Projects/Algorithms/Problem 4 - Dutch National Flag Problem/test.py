@@ -34,6 +34,6 @@ def test_sort(input):
 
 
 @pytest.mark.parametrize("input, error", TEST_ERROR)
-def test_sqrt_error(input, error):
+def test_sort_error(input, error):
     with pytest.raises(**error):
         sort_012(input)

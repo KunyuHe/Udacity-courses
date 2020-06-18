@@ -33,6 +33,6 @@ def test_rearrange_digits(input, expected):
 
 
 @pytest.mark.parametrize("input, error", TEST_ERROR)
-def test_sqrt_error(input, error):
+def test_rearrange_error(input, error):
     with pytest.raises(**error):
         rearrange_digits(input)
