@@ -46,7 +46,7 @@ class HuffmanTree:
         try:
             root = self.get_root()
         except:
-            raise ValueError("Nothing in the Huffman Tree.")
+            raise ValueError("Nothing in the Huffman Trie.")
 
         def _encode(node, code):
             if node is None:
